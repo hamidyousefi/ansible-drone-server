@@ -1,0 +1,29 @@
+---
+galaxy_info:
+  role_name: drone-server
+  author: Hamid Yousefi
+  description: Drone Server Container Configuration
+  license: GPL-2.0-or-later
+  min_ansible_version: 2.8
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+        - focal
+  galaxy_tags:
+    - linux
+    - docker
+    - containerization
+    - containerd
+    - system
+    - drone
+    - ci
+    - cd
+dependencies:
+  - role: hamidyousefi.docker
+    version: v1.3.1

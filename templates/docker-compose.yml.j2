@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  {{ drone_server_service_name }}:
+    image: drone/drone:{{ drone_server_service_version }}
+    container_name: {{ drone_server_service_name }}
+    hostname: {{ drone_server_service_name }}
+    environment:
+      DRONE_GITEA_CLIENT_ID: {{ drone_gitea_client_id }}
+      DRONE_GITEA_CLIENT_SECRET: {{ drone_gitea_client_secret }}
+      DRONE_GITEA_SERVER: {{ drone_gitea_server }}
+      DRONE_GIT_ALWAYS_AUTH: {{ drone_git_always_auth }}
+      DRONE_RPC_SECRET: {{ drone_rpc_secret }}
+      DRONE_SERVER_HOST: {{ drone_server_host }}
+      DRONE_SERVER_PROTO: {{ drone_server_proto }}
+    volumes:
+      - /mnt/{{ drone_server_service_name }}/data:/data
+    ports:
+      - '{{ drone_exposition_ip | default('127.0.0.1') }}:{{ drone_exposition_port | default('8080') }}:80/tcp'
+    restart: always
+
+networks:
+  default:
+    name: drone
+    driver: bridge

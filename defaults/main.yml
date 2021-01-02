@@ -1,0 +1,12 @@
+---
+drone_server_service_name: drone-server
+drone_server_service_version: '1'
+drone_gitea_client_id: ''
+drone_gitea_client_secret: ''
+drone_gitea_server: ''
+drone_git_always_auth: ''
+drone_rpc_secret: ''
+drone_server_host: ''
+drone_server_proto: 'http'
+drone_exposition_ip: '127.0.0.1'
+drone_exposition_port: '8080'
